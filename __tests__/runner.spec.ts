@@ -52,6 +52,6 @@ createGraph({
 execute<Promise<Graph>>(g6SSR, options).then(async (buffer) => {
   // writeFileSync(__dirname + '/graph.png', graph.toBuffer());
 
-  assert.deepEqual(readFileSync(__dirname + '/graph.png'), buffer);
+  assert.deepEqual(readFileSync(__dirname + '/assets/graph.png'), buffer);
   process.exit(0);
 });
