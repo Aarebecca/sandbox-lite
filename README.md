@@ -1,4 +1,4 @@
-## Node-Sandbox
+## Sandbox-Lite
 
 This is a simple sandbox for running JavaScript in the Node.js environment, supporting the following features:
 
@@ -14,7 +14,7 @@ This is a simple sandbox for running JavaScript in the Node.js environment, supp
 1. Install the package:
 
 ```bash
-npm install node-sandbox
+npm install sandbox-lite
 ```
 
 2. execute the code:
@@ -22,7 +22,7 @@ npm install node-sandbox
 Run in the main thread:
 
 ```javascript
-import { execute } from 'node-sandbox';
+import { execute } from 'sandbox-lite';
 
 const code = `
   const a = 1;
@@ -37,7 +37,7 @@ const result = await execute(code);
 Run in the WebWorker:
 
 ```javascript
-import { executeInWorker } from 'node-sandbox';
+import { executeInWorker } from 'sandbox-lite';
 
 const code = `
   const a = 1;

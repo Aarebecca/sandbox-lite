@@ -1,5 +1,5 @@
 {
-  "name": "node-sandbox",
+  "name": "sandbox-lite",
   "version": "0.0.1",
   "description": "A simple node code execution sandbox, supporting TypeScript and basic security checks",
   "main": "lib/index.js",
@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aarebecca/node-sandbox"
+    "url": "https://github.com/Aarebecca/sandbox-lite"
   },
   "dependencies": {
     "@babel/parser": "^7.26.3",
