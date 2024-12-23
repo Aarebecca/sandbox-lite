@@ -22,13 +22,19 @@ a + b;
 
 assert.strictEqual(execute(typescriptCode), 3);
 
+const options = {
+  allows: {
+    dependencies: ['@antv/*', '@ant-design'],
+  },
+};
+
 const g6Version = `
 import { version } from '@antv/g6';
 
 version;
 `;
 
-assert.strictEqual(execute(g6Version), version);
+assert.strictEqual(execute(g6Version, options), version);
 
 const g6SSR = `
 import { createGraph } from '@antv/g6-ssr';
@@ -43,7 +49,7 @@ createGraph({
 }).then(graph => graph.toBuffer());
 `;
 
-execute<Promise<Graph>>(g6SSR).then(async (buffer) => {
+execute<Promise<Graph>>(g6SSR, options).then(async (buffer) => {
   // writeFileSync(__dirname + '/graph.png', graph.toBuffer());
 
   assert.deepEqual(readFileSync(__dirname + '/graph.png'), buffer);
