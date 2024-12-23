@@ -1,6 +1,6 @@
 {
   "name": "node-sandbox",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A simple node code execution sandbox, supporting TypeScript and basic security checks",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -14,7 +14,8 @@
     "build": "npm run build:cjs && npm run build:esm",
     "build:cjs": "rm -rf lib && tsc --module commonjs --outDir lib",
     "build:esm": "rm -rf esm && tsc --module esnext --outDir esm",
-    "test": "npm run build && bash ./scripts/test.sh"
+    "test": "npm run build && bash ./scripts/test.sh",
+    "prepublishOnly": "npm run test"
   },
   "keywords": [
     "node",
@@ -23,6 +24,10 @@
   ],
   "author": "https://github.com/Aarebecca",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aarebecca/node-sandbox"
+  },
   "dependencies": {
     "@babel/parser": "^7.26.3",
     "@eslint/js": "^9.17.0",
