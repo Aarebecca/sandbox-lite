@@ -1,0 +1,46 @@
+{
+  "name": "node-sandbox",
+  "version": "1.0.0",
+  "description": "A simple node code execution sandbox, supporting TypeScript and basic security checks",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "src",
+    "lib",
+    "esm"
+  ],
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "rm -rf lib && tsc --module commonjs --outDir lib",
+    "build:esm": "rm -rf esm && tsc --module esnext --outDir esm",
+    "test": "npm run build && bash ./scripts/test.sh"
+  },
+  "keywords": [
+    "node",
+    "sandbox",
+    "vm"
+  ],
+  "author": "https://github.com/Aarebecca",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.26.3",
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-security": "^3.0.1",
+    "globals": "^15.14.0",
+    "minimatch": "^10.0.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.1"
+  },
+  "devDependencies": {
+    "@antv/g6": "^5.0.35",
+    "@antv/g6-ssr": "^0.0.7",
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}

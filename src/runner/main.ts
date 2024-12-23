@@ -1,0 +1,30 @@
+import { Script } from 'vm';
+import { check } from '../check';
+import { compiler } from '../compiler';
+import { createContext } from '../context';
+import type { ExecuteOptions } from '../types';
+import { getOptions } from '../options';
+
+export function execute<T = any>(
+  code: string,
+  options: ExecuteOptions = {}
+): T {
+  const opts = getOptions(options);
+  try {
+    const checkResult = check(code, opts);
+    if (!checkResult.pass) throw new Error(checkResult.message);
+
+    const compiledCode = compiler(code);
+
+    const script = new Script(compiledCode);
+    const returns = script.runInNewContext(createContext(opts), {
+      timeout: opts.timeout,
+      displayErrors: true,
+      breakOnSigint: true,
+    });
+
+    return returns;
+  } catch (error) {
+    console.error(error);
+  }
+}
