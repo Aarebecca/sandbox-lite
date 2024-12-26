@@ -1,10 +1,6 @@
-import type { CompilerOptions } from 'typescript';
 import { transformSync } from 'esbuild';
 
-export function compiler(
-  sourceCode: string,
-  options: CompilerOptions = {}
-): string {
+export function compiler(sourceCode: string): string {
   const result = transformSync(sourceCode, {
     loader: 'ts',
     format: 'cjs',

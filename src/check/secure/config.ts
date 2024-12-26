@@ -2,7 +2,6 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import pluginSecurity from 'eslint-plugin-security';
 import { flatConfigs } from 'eslint-plugin-import';
-import type { Linter } from 'eslint';
 import type { ExecuteOptions, WorkerExecuteOptions } from '../../types';
 
 export const getESLintConfig = (
@@ -59,5 +58,5 @@ export const getESLintConfig = (
         'no-unused-vars': 'off',
       },
     },
-  ] satisfies Linter.Config[];
+  ];
 };
