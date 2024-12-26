@@ -12,10 +12,8 @@ const javascriptCode = `
 
 assert.strictEqual(
   compiler(javascriptCode),
-  `"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const g6_1 = require("@antv/g6");
-const graph = new g6_1.Graph({});
+  `var import_g6 = require("@antv/g6");
+const graph = new import_g6.Graph({});
 const data = graph.getData();
 `
 );

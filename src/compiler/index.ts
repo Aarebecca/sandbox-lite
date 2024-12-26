@@ -1,17 +1,18 @@
 import type { CompilerOptions } from 'typescript';
-import { ModuleKind, ScriptTarget, transpileModule } from 'typescript';
+import { transformSync } from 'esbuild';
 
 export function compiler(
   sourceCode: string,
   options: CompilerOptions = {}
 ): string {
-  const result = transpileModule(sourceCode, {
-    compilerOptions: {
-      target: ScriptTarget.ES2020,
-      module: ModuleKind.CommonJS,
-      ...options,
-    },
+  const result = transformSync(sourceCode, {
+    loader: 'ts',
+    format: 'cjs',
+    target: 'es2020',
+    sourcefile: 'index.ts',
+    sourcemap: false,
+    minify: false,
   });
 
-  return result.outputText;
+  return result.code;
 }
