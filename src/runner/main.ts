@@ -10,21 +10,17 @@ export function execute<T = any>(
   options: ExecuteOptions = {}
 ): T {
   const opts = getOptions(options);
-  try {
-    const checkResult = check(code, opts);
-    if (!checkResult.pass) throw new Error(checkResult.message);
+  const checkResult = check(code, opts);
+  if (!checkResult.pass) throw new Error(checkResult.message);
 
-    const compiledCode = compiler(code);
+  const compiledCode = compiler(code);
 
-    const script = new Script(compiledCode);
-    const returns = script.runInNewContext(createContext(opts), {
-      timeout: opts.timeout,
-      displayErrors: true,
-      breakOnSigint: true,
-    });
+  const script = new Script(compiledCode);
+  const returns = script.runInNewContext(createContext(opts), {
+    timeout: opts.timeout,
+    displayErrors: true,
+    breakOnSigint: true,
+  });
 
-    return returns;
-  } catch (error) {
-    console.error(error);
-  }
+  return returns;
 }
