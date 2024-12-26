@@ -29,15 +29,13 @@
     "url": "https://github.com/Aarebecca/sandbox-lite"
   },
   "dependencies": {
-    "@babel/parser": "^7.26.3",
     "@eslint/js": "^9.17.0",
+    "esbuild": "^0.24.2",
     "eslint": "^9.17.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-security": "^3.0.1",
     "globals": "^15.14.0",
-    "minimatch": "^10.0.1",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.1"
+    "minimatch": "^10.0.1"
   },
   "devDependencies": {
     "@antv/g2-ssr": "^0.0.8",

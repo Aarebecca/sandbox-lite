@@ -1,6 +1,5 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
 import pluginSecurity from 'eslint-plugin-security';
 import { flatConfigs } from 'eslint-plugin-import';
 import type { Linter } from 'eslint';
@@ -18,7 +17,6 @@ export const getESLintConfig = (
     pluginJs.configs.recommended,
     pluginSecurity.configs.recommended,
     flatConfigs.recommended,
-    ...tseslint.configs.recommended,
     // 限制库引用
     {
       rules: {
@@ -58,8 +56,7 @@ export const getESLintConfig = (
     {
       rules: {
         'import/no-unresolved': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-require-imports': 'off',
+        'no-unused-vars': 'off',
       },
     },
   ] satisfies Linter.Config[];
