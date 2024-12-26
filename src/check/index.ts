@@ -1,8 +1,7 @@
 import { lint } from './secure';
-import { syntax } from './syntax';
 import { ExecuteOptions, WorkerExecuteOptions } from '../types';
 
-const pipeline = [syntax, lint];
+const pipeline = [lint];
 
 export function check(
   code: string,
