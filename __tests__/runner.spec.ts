@@ -1,7 +1,6 @@
 import { version } from '@antv/g6';
-import { Graph } from '@antv/g6-ssr';
 import assert from 'assert';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { execute } from '../src';
 
 const javascriptCode = `
@@ -49,9 +48,10 @@ createGraph({
 }).then(graph => graph.toBuffer());
 `;
 
-execute<Promise<Graph>>(g6SSR, options).then(async (buffer) => {
-  // writeFileSync(__dirname + '/graph.png', graph.toBuffer());
+execute<Promise<Buffer>>(g6SSR, options).then(async (buffer) => {
+  const file = __dirname + '/assets/graph.png';
+  if (!existsSync(file)) writeFileSync(file, buffer);
+  else assert.deepEqual(readFileSync(file), buffer);
 
-  assert.deepEqual(readFileSync(__dirname + '/assets/graph.png'), buffer);
   process.exit(0);
 });
