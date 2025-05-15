@@ -13,7 +13,7 @@ export function execute<T = any>(
   const checkResult = check(code, opts);
   if (!checkResult.pass) throw new Error(checkResult.message);
 
-  const compiledCode = compiler(code);
+  const compiledCode = options.compile === false ? code : compiler(code);
 
   const script = new Script(compiledCode);
   const returns = script.runInNewContext(createContext(opts), {

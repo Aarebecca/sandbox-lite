@@ -1,6 +1,6 @@
 {
   "name": "sandbox-lite",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple node code execution sandbox, supporting TypeScript and basic security checks",
   "main": "lib/index.js",
   "module": "esm/index.js",

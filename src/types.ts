@@ -1,4 +1,5 @@
 export interface ExecuteOptions {
+  compile?: boolean;
   timeout?: number;
   context?: Record<string, any>;
   allows?: {

@@ -21,6 +21,10 @@ a + b;
 
 assert.strictEqual(execute(typescriptCode), 3);
 
+assert.throws(() => {
+  execute(typescriptCode, { compile: false });
+});
+
 const options = {
   allows: {
     dependencies: ['@antv/*', '@ant-design'],

@@ -18,7 +18,7 @@ export function executeInWorker<T = any>(
       const checkResult = check(code, opts);
       if (!checkResult.pass) throw new Error(checkResult.message);
 
-      const compiledCode = compiler(code);
+      const compiledCode = options.compile === false ? code : compiler(code);
 
       const worker = new Worker(__filename, {
         workerData: {
