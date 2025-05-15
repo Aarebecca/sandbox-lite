@@ -1,7 +1,7 @@
 import { Script } from 'vm';
 import { Worker, isMainThread, parentPort, workerData } from 'worker_threads';
 import { check } from '../check';
-import { compiler } from '../compiler';
+import { compile } from '../compiler';
 import { createContext } from '../context';
 import type { WorkerExecuteOptions } from '../types';
 import { getOptions } from '../options';
@@ -18,7 +18,7 @@ export function executeInWorker<T = any>(
       const checkResult = check(code, opts);
       if (!checkResult.pass) throw new Error(checkResult.message);
 
-      const compiledCode = options.compile === false ? code : compiler(code);
+      const compiledCode = options.compile === false ? code : compile(code);
 
       const worker = new Worker(__filename, {
         workerData: {

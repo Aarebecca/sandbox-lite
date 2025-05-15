@@ -1,6 +1,6 @@
 import { transformSync } from 'esbuild';
 
-export function compiler(sourceCode: string): string {
+export function compile(sourceCode: string): string {
   const result = transformSync(sourceCode, {
     loader: 'ts',
     format: 'cjs',
