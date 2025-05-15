@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { compiler } from '../src/compiler';
+import { compile } from '../src/compiler';
 
 const javascriptCode = `
   import { Graph } from '@antv/g6';
@@ -11,7 +11,7 @@ const javascriptCode = `
 `;
 
 assert.strictEqual(
-  compiler(javascriptCode),
+  compile(javascriptCode),
   `var import_g6 = require("@antv/g6");
 const graph = new import_g6.Graph({});
 const data = graph.getData();
