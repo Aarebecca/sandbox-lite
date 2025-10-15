@@ -1,7 +1,7 @@
-import assert from 'assert';
-import { compile } from '../src/compiler';
+import assert from "assert";
+import { compile } from "../src/compiler";
 
-const javascriptCode = `
+const originCode = `
   import { Graph } from '@antv/g6';
   import type { GraphData } from '@antv/g6';
 
@@ -10,10 +10,10 @@ const javascriptCode = `
   const data: GraphData = graph.getData();
 `;
 
-assert.strictEqual(
-  compile(javascriptCode),
-  `var import_g6 = require("@antv/g6");
-const graph = new import_g6.Graph({});
+const targetCode = `
+var _g = require("@antv/g6");
+const graph = new _g.Graph({});
 const data = graph.getData();
-`
-);
+`;
+
+assert.strictEqual(compile(originCode).trim(), targetCode.trim());

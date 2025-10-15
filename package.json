@@ -29,8 +29,10 @@
     "url": "https://github.com/Aarebecca/sandbox-lite"
   },
   "dependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@eslint/js": "^9.26.0",
-    "esbuild": "^0.24.2",
     "eslint": "^9.26.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-security": "^3.0.1",
@@ -41,6 +43,7 @@
     "@antv/g2-ssr": "^0.0.8",
     "@antv/g6": "^5.0.46",
     "@antv/g6-ssr": "^0.0.7",
+    "@types/babel__core": "^7.20.5",
     "@types/node": "^22.15.18",
     "tsx": "^4.19.4"
   },
