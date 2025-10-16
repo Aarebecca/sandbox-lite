@@ -11,9 +11,12 @@ const originCode = `
 `;
 
 const targetCode = `
-var _g = require("@antv/g6");
-const graph = new _g.Graph({});
-const data = graph.getData();
+var _g6 = require('@antv/g6');
+  
+
+  const graph = new (0, _g6.Graph)({});
+
+  const data = graph.getData();
 `;
 
 assert.strictEqual(compile(originCode).trim(), targetCode.trim());
